@@ -1,0 +1,21 @@
+# Copy to config.yaml and fill in values. config.yaml is gitignored.
+
+digicert:
+  base_url: "https://YOUR_DIGICERT_BASE_URL"
+  user_id: "YOUR_USER_ID"
+  # Optional if ESEAL_API_KEY environment variable is set
+  api_key: ""
+  # Optional; if empty, the first credential from credentials/list is used
+  credential_id: ""
+
+signing:
+  hash_algo: "2.16.840.1.101.3.4.2.1"
+  sign_algo: "1.2.840.113549.1.1.11"
+  # Must be >= test.hashes_per_batch; recommend >= loop_iterations * hashes_per_batch
+  num_signatures: 100
+  authorize_description: "eSeal API test run"
+
+test:
+  loop_iterations: 4
+  hashes_per_batch: 24
+  state_dir: "./.eseal_state"
